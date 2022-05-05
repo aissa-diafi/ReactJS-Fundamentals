@@ -1,0 +1,50 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById('root')
+
+    function SayHello({ firstName, lastName }) {
+      return (
+        <div>
+          Hello {firstName} {lastName}!
+        </div>
+      )
+    }
+    SayHello.propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+    }
+
+    const element = <SayHello firstName={false} />
+
+    ReactDOM.render(element, rootElement)
+  </script>
+</body>
+
+<!-- 
+
+  When you create reusable React components, you want to make sure that people use them correctly. The best way to do this is to use TypeScript in your codebase to give you compile-time checking of your code. But if you’re not using TypeScript, you can still use PropTypes to get runtime validation.
+
+  In this lesson we’ll learn how PropTypes work, why they’re not enabled in production, and how to use the pre-built prop-types package (https://www.npmjs.com/package/prop-types) from the React team.
+
+  Typechecking With PropTypes (https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+  A list of other common proptypes:
+
+    {
+      optionalArray: PropTypes.array,
+      optionalBool: PropTypes.bool,
+      optionalFunc: PropTypes.func,
+      optionalNumber: PropTypes.number,
+      optionalObject: PropTypes.object,
+      optionalString: PropTypes.string,
+      optionalSymbol: PropTypes.symbol,
+    }
+
+    prop-types - npm (https://www.npmjs.com/package/prop-types)
+
+ -->

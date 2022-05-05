@@ -1,0 +1,26 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const rootElement = document.getElementById('root')
+    const element = React.createElement('div', {
+      className: 'container',
+      children: 'Hello World',
+    })
+    ReactDOM.render(element, rootElement)
+  </script>
+</body>
+
+
+<!--
+
+  React uses the same APIs to control and update the DOM that we did in the previous lesson. But it offers so much to the table that we’re going to introduce it into the project and rewrite what we’ve written to React code. Instead of creating DOM elements, we’ll create React elements and then hand those off to react-dom to handle converting those into DOM elements and rendering them to the page.
+
+  If you’ve ever learned or used React before, you’re probably more familiar with JSX than React’s createElement API, but it’s important to understand the createElement API first so you understand the magic and can become a code magician yourself. Not to worry, we’ll get to JSX soon enough!
+
+  The React.createElement API is as simple as the element that you want to create. Here we have a <div>, and then an object that has all of the props that you want to have applied.
+
+  Just as a convenience, in React.createElement all arguments after the props object are considered children.
+  
+ -->

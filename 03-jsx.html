@@ -1,0 +1,28 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById('root')
+    const element = <div className="container">Hello World</div>
+    ReactDOM.render(element, rootElement)
+  </script>
+</body>
+
+<!-- 
+  It’s awesome that we can interact directly with React’s createElement API to create React elements and then hand those off to React DOM to get them to show up on the screen. But it’s not the most ergonomic API to write our UI code in. It’s hard to track when one element starts and the next one ends.
+
+  This is why the React team came up with JSX (https://reactjs.org/docs/introducing-jsx.html). It’s an extension to the JavaScript language to support syntax that looks similar to the HTML that you would write to create these DOM elements (there are a handful of differences: https://reactjs.org/docs/dom-elements.html). JSX gives us an expressive syntax for representing our UI, without losing the benefits and powers of writing our UI in JavaScript. The best way to take advantage of this is to learn how JSX is compiled to regular JavaScript calls, so we’ll look into that a bit as well.
+
+  Tip: Spend some time exploring how Babel compiles JSX, this will help you be more effective.
+  (https://babeljs.io/repl)
+
+  Running Babel in the browser is slow because the browser will have to compile your files every time you open a page
+
+  [
+    JSX 
+    >>Babel>> React Elements (plain objects) using React.createElement() call
+    >>ReactDOM>> DOM Elements using ReactDOM.createRoot(DOM element) and root.render(React element)
+  ]
+ -->

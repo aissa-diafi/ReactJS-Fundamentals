@@ -1,0 +1,44 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const element = (
+      <>
+        <span>Hello</span> <span>World</span>
+      </>
+    )
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
+
+<!-- 
+
+  In React, you can’t render two React elements side-by-side (<span>Hello</span><span>World</span>). They have to be wrapped in another element (like a <div>). This may seem like an odd limitation, but when you think about the fact that JSX is compiled to React.createElement calls, it makes sense. In this lesson we’ll take a look at that and how to side-step this limitation with React Fragments.
+
+  Remember that React elements are JavaScript expressions. Just like how a function can't return two values, or how variables can't store two values, you can't return two React elements.
+
+  Use React.Fragment when a specific DOM structure is required
+
+  -----------------------------------------------------------
+
+      --- With React.createElement()
+      const helloElement = React.createElement('span', null, 'Hello')
+      const worldElement = React.createElement('span', null, 'World')
+      const element = React.createElement(
+        React.Fragment,
+        null,
+        helloElement,
+        ' ',
+        worldElement
+      )
+      
+      --- With JSX
+      const element = <React.Fragment>    // = <>
+                          <span>Hello</span> <span>World</span>
+                      <React.Fragment/>   // = </>
+
+      ReactDOM.render(element, document.getElementById('root'))
+
+ -->

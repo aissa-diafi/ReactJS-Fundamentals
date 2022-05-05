@@ -1,0 +1,73 @@
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <style>
+    .box {
+      border: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .box--large {
+      width: 270px;
+      height: 270px;
+    }
+
+    .box--medium {
+      width: 180px;
+      height: 180px;
+    }
+
+    .box--small {
+      width: 90px;
+      height: 90px;
+    }
+  </style>
+  <script type="text/babel">
+    function Box({ style, size, className = '', ...rest }) {
+      const sizeClassName = size ? `box--${size}` : ''
+      return (
+        <div
+          className={`box ${className} ${sizeClassName}`}
+          style={{ fontStyle: 'italic', ...style }}
+          {...rest}
+        />
+      )
+    }
+
+    const element = (
+      <div>
+        <Box size="small" style={{ backgroundColor: 'lightblue' }}>
+          small lightblue box
+        </Box>
+        <Box size="medium" style={{ backgroundColor: 'pink' }}>
+          medium pink box
+        </Box>
+        <Box size="large" style={{ backgroundColor: 'orange' }}>
+          large orange box
+        </Box>
+        <Box>sizeless box</Box>
+      </div>
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+</body>
+
+<!-- 
+
+  Application layout is only one part of the user interface equation. Another part is styling. In this lesson we’ll explore the className and style prop for styling our components. This lesson goes much deeper than that. We’ll learn why className is className and not class (like it is in HTML), and we’ll learn why the style prop accepts an object of camelCase styles rather than a string of css (like it does in HTML). We’ll take it even further by creating a reusable component that encapsulates these styles and composes the given className and style prop together. You’re going to love this one.
+
+  Finally, when you actually build a full application, a tool you’ll find invaluable is Tailwind.css.
+
+  Dan Abramov on class vs className (https://github.com/facebook/react/issues/13525#issuecomment-417818906)
+
+  Like vanilla JS functions, custom components are how you reduce reptition in your code.
+
+  This applies to more than styling. It is a great example of creating versatile components through abstraction.
+
+ -->
